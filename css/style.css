@@ -1,0 +1,32 @@
+#logo{
+	background-image:url(file:///Macintosh%20HD/Users/scoeyswafford/Desktop/Football-News-App/img/bg.png);
+	}
+
+body{
+	background-image: url(file:///Macintosh%20HD/Users/scoeyswafford/Desktop/Football-News-App/img/crisp_paper_ruffles.png);	
+	}
+
+.form-horizontal{
+	float: right;
+	padding-right: 400px;
+	padding-top: 200px;
+	}
+.sign{
+	float: right; 
+	padding-left: -100px;
+	padding-top: 500px;
+	}	
+	
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { }	
+	
