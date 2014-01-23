@@ -1,20 +1,25 @@
 #logo{
-	background-image:url(file:///Macintosh%20HD/Users/scoeyswafford/Desktop/Football-News-App/img/bg.png);
+	background-image: url(../img/bg.png);
 	}
 
 body{
-	background-image: url(file:///Macintosh%20HD/Users/scoeyswafford/Desktop/Football-News-App/img/crisp_paper_ruffles.png);	
+	background-image: url(../img/crisp_paper_ruffles.png);		
 	}
 
 .form-horizontal{
 	float: right;
-	padding-right: 400px;
-	padding-top: 200px;
+	padding-right: 100px;
+	padding-top: 100px;
+	background-image: url(../img/bg.png);
 	}
-.sign{
-	float: right; 
-	padding-left: -100px;
-	padding-top: 500px;
+#leftSide{
+	background-image: url(../img/football.jpg);
+	padding-top: 10px;
+	height: 310px;
+	width:auto;
+	}
+h2{
+	color: #FFF;
 	}	
 	
 

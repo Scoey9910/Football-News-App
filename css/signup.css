@@ -9,16 +9,23 @@ body{
 	}
 
 .form-horizontal{
-	padding-right: 400px;
-	padding-top: 200px;
-	border:solid;
+	padding-right: 300px;
+	padding-top: 100px;
+	border: solid;
+	background-image: url(../img/bg.png);
+	}
+.col-sm-2 control-label{
+	color: #FFF;
 	}
 .sign{
 	float: right; 
 	padding-left: -100px;
 	padding-top: 500px;
 	border:solid;
-	}	
+	}
+h1{
+	color: #FFF;
+	}		
 
 
 /* Extra small devices (phones, less than 768px) */
