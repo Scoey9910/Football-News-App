@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/* ^1 --------------------------- global constants -------------------------*/
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	text-align:center;
+	font: 100% Georgia, "Times New Roman", Times, serif;
+	background: url(/CakePHP/join_files/crisp_paper_ruffles.png) repeat-x;
+}
+#logo{
+	background-image:url(/CakePHP/join_files/bg.png)
+	}
+/* ^2 --------------- limited-scale reset ---------------- */
+h1, h2, h3, h4, h5, h6, p, address, blockquote, div, ul, li {
+	margin: 0;
+	padding: 0;
+}
+p {
+	color:#333;
+	line-height:1.8;
+	margin-bottom: 1em;
+}
+h1 {
+	font-size: 2em;
+	color: #193742;
+	margin-bottom: .4em;
+}
+h2 {
+	font-size: 1.6em;
+	color: #51341a;
+	font-weight: normal;
+	margin-top: 1.2em;
+	margin-bottom: 1em;
+}
+h3 {
+	font-size: 1.3em;
+	color: #51341a;
+	font-weight: normal;
+	margin: 1.25em 0 .5em;
+}
+h1, h2, h3 {
+	clear: both;
+}
+a:link, a:visited {
+	color: #995522;
+	text-decoration: none;
+}
+a:hover, a:active {
+	color: #cb7d20;
+	border-bottom: 1px dashed #cb7d20;
+}
+a.accent {
+	display: block;
+	text-align: right;
+}
+a.accent:hover {
+ 	border: none;
+	color: #cb202a;
+}
