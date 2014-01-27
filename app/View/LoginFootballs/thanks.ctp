@@ -1,1 +1,0 @@
-<h2>Thanks For Signing Up</h2>

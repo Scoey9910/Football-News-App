@@ -7,20 +7,14 @@
 body{
 	background-image:url(../img/crisp_paper_ruffles.png)	
 	}
-
-.form-horizontal{
-	padding-right: 300px;
-	padding-top: 100px;
-	border: solid;
-	background-image: url(../img/bg.png);
+form{
+	float: left;	
 	}
+
 .col-sm-2 control-label{
 	color: #FFF;
 	}
 .sign{
-	float: right; 
-	padding-left: -100px;
-	padding-top: 500px;
 	border:solid;
 	}
 h1{
