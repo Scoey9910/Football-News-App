@@ -76,6 +76,27 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+$editFormAction = $_SERVER['PHP_SELF'];
+if (isset($_SERVER['QUERY_STRING'])) {
+  $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
+}
+
+if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
+  $updateSQL = sprintf("UPDATE loginfootball SET password=%s, email=%s, first_name=%s, last_name=%s, address=%s, state_code=%s, zip_postal=%s, `role`=%s WHERE id=%s",
+                       GetSQLValueString($_POST['password'], "text"),
+                       GetSQLValueString($_POST['email'], "text"),
+                       GetSQLValueString($_POST['first_name'], "text"),
+                       GetSQLValueString($_POST['last_name'], "text"),
+                       GetSQLValueString($_POST['address'], "text"),
+                       GetSQLValueString($_POST['state_code'], "text"),
+                       GetSQLValueString($_POST['zip_postal'], "int"),
+                       GetSQLValueString($_POST['role'], "text"),
+                       GetSQLValueString($_POST['id'], "int"));
+
+  mysql_select_db($database_loginfootball, $loginfootball);
+  $Result1 = mysql_query($updateSQL, $loginfootball) or die(mysql_error());
+}
+
 $colname_qMembersDetails = "-1";
 if (isset($_GET['id'])) {
   $colname_qMembersDetails = $_GET['id'];
@@ -105,7 +126,7 @@ $totalRows_qMembersDetails = mysql_num_rows($qMembersDetails);
 <div id="logo">
 <img src="img/logo.png" />
 </div>
-<form method="POST" name="form1" id="form1">
+<form action="<?php echo $editFormAction; ?>" method="POST" name="form1" id="form1">
   <table align="center">
 
     <tr valign="baseline">
@@ -153,10 +174,12 @@ do {
 	  $row_qMembersDetails = mysql_fetch_assoc($qMembersDetails);
   }
 ?>
-      </select></td>
-      <td><input type="submit" value="Update" /></td>
+        </select></td>
+      <td><input type="submit" value="Update" />
+      <input name="id" type="hidden" id="id" value="<?php echo $row_qMembersDetails['id']; ?>" /></td>
     </tr>
   </table>
+  <input type="hidden" name="MM_update" value="form1" />
 </form>
 <p>&nbsp;</p>
 

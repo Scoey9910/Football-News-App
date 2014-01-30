@@ -44,10 +44,10 @@ if (isset($_GET['accesscheck'])) {
 
 if (isset($_POST['email'])) {
   $loginUsername=$_POST['email'];
-  $password=$_POST['password'];
+  $password=$_POST['pwd'];
   $MM_fldUserAuthorization = "role";
   $MM_redirectLoginSuccess = "twitter.php";
-  $MM_redirectLoginFailed = "index.php";
+  $MM_redirectLoginFailed = "invalid.php";
   $MM_redirecttoReferrer = true;
   mysql_select_db($database_loginfootball, $loginfootball);
   	
@@ -96,24 +96,22 @@ if (isset($_POST['email'])) {
 <div id="logo">
 <img src="img/logo.png" />
 </div>
-<form ACTION="<?php echo $loginFormAction; ?>" METHOD="post" class="form-horizontal" role="form">
- 
-<div class="form-group">
-    <span id="sprytextfield1">
-    <label for="email">Email</label>
-    <input name="email" type="text" id="email" size="50" maxlength="50" />
-    <span class="textfieldRequiredMsg">A valid email is required.</span><br />
-    <br />
-    <span class="textfieldInvalidFormatMsg">Please enter a valid email adderss</span></span
-    ><span id="sprypassword2">
-  <label for="password">Password</label>
-  <input name="password" type="password" id="password" size="50" maxlength="50" />
-  <span class="passwordRequiredMsg">A value is required.</span></span>
-    <div class="btn">
-      <button type="submit" class="btn btn-default">Sign in</button>
-      
-    </div>
-</div>
+<fieldset>
+  <legend>Login below to access our member area        </legend>
+  <form id="form1" name="form1" method="POST" action="<?php echo $loginFormAction; ?>">
+          <p><span id="sprytextfield1">
+          <label for="email">Email</label>
+          <input name="email" type="text" id="email" size="50" maxlength="50" />
+    <span class="textfieldRequiredMsg">An email address is required.</span><span class="textfieldInvalidFormatMsg">Please enter a valid email address.</span></span></p>
+          <p>
+                        <span id="sprytextfield2">
+            <label for="pwd">Password</label>
+            <input name="pwd" type="password" id="pwd" size="10" maxlength="15" />
+          <span class="textfieldRequiredMsg">A password is required (up to 15 characters)</span></span></p>
+          <p><input type="submit" name="submit" id="submit" value="Login" />
+          </p>
+</form>
+      </fieldset>
   <a href="signup.php" class="sign">Signup</a>
   
 </form>

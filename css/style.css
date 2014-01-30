@@ -6,7 +6,7 @@ body{
 	background-image: url(../img/crisp_paper_ruffles.png);		
 	}
 
-.form-horizontal{
+#form1{
 	float: right;
 	padding-right: 100px;
 	padding-top: 100px;
