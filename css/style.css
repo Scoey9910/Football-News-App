@@ -16,12 +16,13 @@ body{
 	background-image: url(../img/football.jpg);
 	padding-top: 10px;
 	height: 310px;
-	width:auto;
+	width: auto;
+	color: #FFF;
 	}
 h2{
 	color: #FFF;
 	}	
-	
+
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */

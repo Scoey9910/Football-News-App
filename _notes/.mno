@@ -1,1 +1,1 @@
-﻿<?xml version="1.0" encoding="utf-8" ?><info>	<infoitem key="PageAccessControlMethod" value="dontUseAccessList" /></info>
+﻿<?xml version="1.0" encoding="utf-8" ?><info>	<infoitem key="PageAccessControlMethod" value="useAccessList" />	<infoitem key="PageAccessControl" value="" /></info>

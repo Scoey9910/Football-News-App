@@ -42,22 +42,23 @@ if (isset($_GET['accesscheck'])) {
   $_SESSION['PrevUrl'] = $_GET['accesscheck'];
 }
 
-if (isset($_POST['inputEmail3'])) {
-  $loginUsername=$_POST['inputEmail3'];
-  $password=$_POST['inputPassword3'];
-  $MM_fldUserAuthorization = "";
+if (isset($_POST['email'])) {
+  $loginUsername=$_POST['email'];
+  $password=$_POST['password'];
+  $MM_fldUserAuthorization = "role";
   $MM_redirectLoginSuccess = "twitter.php";
   $MM_redirectLoginFailed = "index.php";
   $MM_redirecttoReferrer = true;
   mysql_select_db($database_loginfootball, $loginfootball);
-  
-  $LoginRS__query=sprintf("SELECT email, password FROM loginfootball WHERE email=%s AND password=%s",
-    GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
+  	
+  $LoginRS__query=sprintf("SELECT username, password, role FROM loginfootball WHERE username=%s AND password=%s",
+  GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $loginfootball) or die(mysql_error());
   $loginFoundUser = mysql_num_rows($LoginRS);
   if ($loginFoundUser) {
-     $loginStrGroup = "";
+    
+    $loginStrGroup  = mysql_result($LoginRS,0,'role');
     
 	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
     //declare two session variables and assign them
@@ -82,48 +83,45 @@ if (isset($_POST['inputEmail3'])) {
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-    
+    <link href="SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
+    <link href="SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
+    <link href="SpryAssets/SpryValidationPassword.css" rel="stylesheet" type="text/css" />
 <title>Football News App</title>
+<script src="SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryValidationPassword.js" type="text/javascript"></script>
 </head>
 
 <body>
 <div id="logo">
 <img src="img/logo.png" />
 </div>
-<form ACTION="<?php echo $loginFormAction; ?>" METHOD="POST" class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-    <span class="col-sm-10">
-    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" />
-    </span>
-    <div class="col-sm-10"></div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+<form ACTION="<?php echo $loginFormAction; ?>" METHOD="post" class="form-horizontal" role="form">
+ 
+<div class="form-group">
+    <span id="sprytextfield1">
+    <label for="email">Email</label>
+    <input name="email" type="text" id="email" size="50" maxlength="50" />
+    <span class="textfieldRequiredMsg">A valid email is required.</span><br />
+    <br />
+    <span class="textfieldInvalidFormatMsg">Please enter a valid email adderss</span></span
+    ><span id="sprypassword2">
+  <label for="password">Password</label>
+  <input name="password" type="password" id="password" size="50" maxlength="50" />
+  <span class="passwordRequiredMsg">A value is required.</span></span>
+    <div class="btn">
       <button type="submit" class="btn btn-default">Sign in</button>
       
     </div>
-  </div>
+</div>
   <a href="signup.php" class="sign">Signup</a>
+  
 </form>
 <div id="leftSide">
 <h2>Football News</h2>
+
 <p></p>
+
 </div>
 
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
@@ -135,6 +133,14 @@ if (isset($_POST['inputEmail3'])) {
  
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 <script src="js/site.js"></script>
-
+<script type="text/javascript">
+var sprytextarea1 = new Spry.Widget.ValidationTextarea("sprytextarea1");
+var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "email");
+var sprypassword1 = new Spry.Widget.ValidationPassword("sprypassword1");
+var sprypassword2 = new Spry.Widget.ValidationPassword("sprypassword2");
+</script>
 </body>
+<footer>
+<a href="admin.php" id="admin">Admin</a>
+</footer>
 </html>

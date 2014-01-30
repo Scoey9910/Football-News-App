@@ -37,15 +37,16 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
-  $insertSQL = sprintf("INSERT INTO loginfootball (username, password, email, first_name, last_name, address, state_code, zip_postal) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-                       GetSQLValueString($_POST['username'], "text"),
+  $insertSQL = sprintf("INSERT INTO loginfootball (username, password, email, first_name, last_name, address, state_code, zip_postal, `role`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                       GetSQLValueString($_POST['email'], "text"),
                        GetSQLValueString($_POST['password'], "text"),
                        GetSQLValueString($_POST['email'], "text"),
                        GetSQLValueString($_POST['first_name'], "text"),
                        GetSQLValueString($_POST['last_name'], "text"),
                        GetSQLValueString($_POST['address'], "text"),
                        GetSQLValueString($_POST['state_code'], "text"),
-                       GetSQLValueString($_POST['zip_postal'], "int"));
+                       GetSQLValueString($_POST['zip_postal'], "int"),
+                       GetSQLValueString($_POST['role'], "text"));
 
   mysql_select_db($database_loginfootball, $loginfootball);
   $Result1 = mysql_query($insertSQL, $loginfootball) or die(mysql_error());
@@ -77,12 +78,9 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 <div id="logo">
 <img src="img/logo.png" />
 </div>
-<form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
+<form action="<?php echo $editFormAction; ?>" method="POST" name="form1" id="form1">
   <table align="center">
-    <tr valign="baseline">
-      <td nowrap="nowrap" align="right">Username:</td>
-      <td><input type="text" name="username" value="" size="32" /></td>
-    </tr>
+
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">Password:</td>
       <td><input type="password" name="password" value="" size="32" /></td>
@@ -113,7 +111,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     </tr>
     <tr valign="baseline">
       <td nowrap="nowrap" align="right">&nbsp;</td>
-      <td><input type="submit" value="Signup" /></td>
+      <td><input name="role" type="hidden" id="role" value="guest" />        <input type="submit" value="Signup" /></td>
     </tr>
   </table>
   <input type="hidden" name="MM_insert" value="form1" />
