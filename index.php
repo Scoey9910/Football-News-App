@@ -51,7 +51,7 @@ if (isset($_POST['email'])) {
   $MM_redirecttoReferrer = true;
   mysql_select_db($database_loginfootball, $loginfootball);
   	
-  $LoginRS__query=sprintf("SELECT username, password, role FROM loginfootball WHERE username=%s AND password=%s",
+  $LoginRS__query=sprintf("SELECT email, password, role FROM loginfootball WHERE email=%s AND password=%s",
   GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $loginfootball) or die(mysql_error());
@@ -98,7 +98,7 @@ if (isset($_POST['email'])) {
 </div>
 <fieldset>
   <legend>Login below to access our member area        </legend>
-  <form id="form1" name="form1" method="POST" action="<?php echo $loginFormAction; ?>">
+  <form action="<?php echo $loginFormAction; ?>" method="POST" name="form1" id="form1">
           <p><span id="sprytextfield1">
           <label for="email">Email</label>
           <input name="email" type="text" id="email" size="50" maxlength="50" />
@@ -108,10 +108,11 @@ if (isset($_POST['email'])) {
             <label for="pwd">Password</label>
             <input name="pwd" type="password" id="pwd" size="10" maxlength="15" />
           <span class="textfieldRequiredMsg">A password is required (up to 15 characters)</span></span></p>
-          <p><input type="submit" name="submit" id="submit" value="Login" />
+          <p>
           </p>
+          <input type="submit" name="submit" id="submit" value="Login" />
 </form>
-      </fieldset>
+</fieldset>
   <a href="signup.php" class="sign">Signup</a>
   
 </form>

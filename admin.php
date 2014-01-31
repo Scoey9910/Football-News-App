@@ -80,6 +80,10 @@ mysql_select_db($database_loginfootball, $loginfootball);
 $query_qMembers = "SELECT * FROM loginfootball";
 $qMembers = mysql_query($query_qMembers, $loginfootball) or die(mysql_error());
 $row_qMembers = mysql_fetch_assoc($qMembers);
+$totalRows_qMembers = mysql_num_rows($qMembers);mysql_select_db($database_loginfootball, $loginfootball);
+$query_qMembers = "SELECT * FROM loginfootball";
+$qMembers = mysql_query($query_qMembers, $loginfootball) or die(mysql_error());
+$row_qMembers = mysql_fetch_assoc($qMembers);
 $totalRows_qMembers = mysql_num_rows($qMembers);
 
 

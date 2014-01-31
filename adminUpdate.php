@@ -82,7 +82,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
-  $updateSQL = sprintf("UPDATE loginfootball SET password=%s, email=%s, first_name=%s, last_name=%s, address=%s, state_code=%s, zip_postal=%s, `role`=%s WHERE id=%s",
+  $updateSQL = sprintf("UPDATE loginfootball SET username=%s, password=%s, email=%s, first_name=%s, last_name=%s, address=%s, state_code=%s, zip_postal=%s, `role`=%s WHERE id=%s",
+                       GetSQLValueString($_POST['password'], "text"),
                        GetSQLValueString($_POST['password'], "text"),
                        GetSQLValueString($_POST['email'], "text"),
                        GetSQLValueString($_POST['first_name'], "text"),
@@ -95,6 +96,13 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 
   mysql_select_db($database_loginfootball, $loginfootball);
   $Result1 = mysql_query($updateSQL, $loginfootball) or die(mysql_error());
+
+  $updateGoTo = "admin.php";
+  if (isset($_SERVER['QUERY_STRING'])) {
+    $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
+    $updateGoTo .= $_SERVER['QUERY_STRING'];
+  }
+  header(sprintf("Location: %s", $updateGoTo));
 }
 
 $colname_qMembersDetails = "-1";
