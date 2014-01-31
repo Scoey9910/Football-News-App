@@ -6,18 +6,14 @@ body{
 	background-image: url(../img/crisp_paper_ruffles.png);		
 	}
 
-#form1{
-	float: right;
-	padding-right: 100px;
-	padding-top: 100px;
-	background-image: url(../img/bg.png);
-	}
+
 #leftSide{
 	background-image: url(../img/football.jpg);
 	padding-top: 10px;
 	height: 310px;
-	width: auto;
+	width: 100%;
 	color: #FFF;
+	float:left;
 	}
 h2{
 	color: #FFF;

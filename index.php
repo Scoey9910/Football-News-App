@@ -97,25 +97,25 @@ if (isset($_POST['email'])) {
 <img src="img/logo.png" />
 </div>
 <fieldset>
-  <legend>Login below to access our member area        </legend>
-  <form action="<?php echo $loginFormAction; ?>" method="POST" name="form1" id="form1">
+        
+        <form id="form1" name="form1" method="POST" action="<?php echo $loginFormAction; ?>">
+        <legend>Login below to access our member area        </legend>
           <p><span id="sprytextfield1">
           <label for="email">Email</label>
           <input name="email" type="text" id="email" size="50" maxlength="50" />
-    <span class="textfieldRequiredMsg">An email address is required.</span><span class="textfieldInvalidFormatMsg">Please enter a valid email address.</span></span></p>
+          <span class="textfieldRequiredMsg">An email address is required.</span><span class="textfieldInvalidFormatMsg">Please enter a valid email address.</span></span></p>
           <p>
                         <span id="sprytextfield2">
             <label for="pwd">Password</label>
             <input name="pwd" type="password" id="pwd" size="10" maxlength="15" />
           <span class="textfieldRequiredMsg">A password is required (up to 15 characters)</span></span></p>
-          <p>
+          <p><input type="submit" name="submit" id="submit" value="Login" />
           </p>
-          <input type="submit" name="submit" id="submit" value="Login" />
-</form>
-</fieldset>
+
   <a href="signup.php" class="sign">Signup</a>
   
 </form>
+      </fieldset>
 <div id="leftSide">
 <h2>Football News</h2>
 
@@ -127,8 +127,7 @@ if (isset($_POST['email'])) {
 <script type="text/javascript" src="jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="js/jquery.placeholder.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap.js"></script>
+
  
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 <script src="js/site.js"></script>
